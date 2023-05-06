@@ -48,6 +48,7 @@
             loadAlbumsBtn.TabIndex = 0;
             loadAlbumsBtn.Text = "Load Albums";
             loadAlbumsBtn.UseVisualStyleBackColor = false;
+            loadAlbumsBtn.Click += loadAlbumsBtn_Click;
             // 
             // dataGridView1
             // 

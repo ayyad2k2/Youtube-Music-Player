@@ -9,5 +9,6 @@ namespace CheapSpotify
     internal class AlbumsDAO
     {
         // V1 only contains fake data. No connection to actual db
+        public List<Album> albums = new List<Album>();
     }
 }

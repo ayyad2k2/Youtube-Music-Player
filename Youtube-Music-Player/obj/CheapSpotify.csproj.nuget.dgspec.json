@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ayyad\\OneDrive\\Desktop\\CheapSpotify\\CheapSpotify.csproj": {}
+    "C:\\Users\\ayyad\\OneDrive\\Documents\\GitHub\\Youtube-Music-Player\\Youtube-Music-Player\\CheapSpotify.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ayyad\\OneDrive\\Desktop\\CheapSpotify\\CheapSpotify.csproj": {
+    "C:\\Users\\ayyad\\OneDrive\\Documents\\GitHub\\Youtube-Music-Player\\Youtube-Music-Player\\CheapSpotify.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ayyad\\OneDrive\\Desktop\\CheapSpotify\\CheapSpotify.csproj",
+        "projectUniqueName": "C:\\Users\\ayyad\\OneDrive\\Documents\\GitHub\\Youtube-Music-Player\\Youtube-Music-Player\\CheapSpotify.csproj",
         "projectName": "CheapSpotify",
-        "projectPath": "C:\\Users\\ayyad\\OneDrive\\Desktop\\CheapSpotify\\CheapSpotify.csproj",
+        "projectPath": "C:\\Users\\ayyad\\OneDrive\\Documents\\GitHub\\Youtube-Music-Player\\Youtube-Music-Player\\CheapSpotify.csproj",
         "packagesPath": "C:\\Users\\ayyad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ayyad\\OneDrive\\Desktop\\CheapSpotify\\obj\\",
+        "outputPath": "C:\\Users\\ayyad\\OneDrive\\Documents\\GitHub\\Youtube-Music-Player\\Youtube-Music-Player\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ayyad\\AppData\\Roaming\\NuGet\\NuGet.Config",
