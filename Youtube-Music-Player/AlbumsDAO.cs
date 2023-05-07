@@ -6,6 +6,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+using System.Windows.Forms;
 
 namespace CheapSpotify
 {
@@ -16,11 +18,11 @@ namespace CheapSpotify
         {
             List<Album> returnThese = new List<Album>();
 
-            MySqlConnection connection = new MySqlConnection 
-                (connectionString);
+            MySqlConnection connection = new MySqlConnection
+            (connectionString);
             connection.Open();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM albums",
+            MySqlCommand command = new MySqlCommand("SELECT ID, ALBUM_TITLE as `Album Title`, ARTIST as `Artist`, YEAR as `release date`, IMAGE_NAME as `Image`, DESCRIPTION as `Description` FROM `albums`",
                 connection);
             using (MySqlDataReader reader = command.ExecuteReader())
             {
