@@ -40,7 +40,7 @@ namespace CheapSpotify
                     returnThese.Add(a);
                 }
             }
-                connection.Close();
+                 connection.Close();
 
             return returnThese;
         }
