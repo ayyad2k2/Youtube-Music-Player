@@ -18,9 +18,6 @@ namespace CheapSpotify
 
             dataGridView1.DataSource = albumBindingSource;
 
-
-
-
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -36,12 +33,44 @@ namespace CheapSpotify
 
             int row = dataGridView.CurrentRow.Index;
 
-            if (row != null)
+            if (dataGridView.Rows[row].Cells[4].Value != null)
             {
                 String imageURL = dataGridView.Rows[row].Cells[4].Value.ToString();
-                pictureBox1.Load(imageURL);
-
+                try
+                {
+                    pictureBox1.Load(imageURL);
+                }
+                catch { }
             }
+
+
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            AlbumsDAO albumsDAO = new AlbumsDAO();
+
+            albumBindingSource.DataSource = albumsDAO.getAllAlbums();
+
+            dataGridView1.DataSource = albumBindingSource;
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            Album album = new Album
+            {
+                AlbumName = albumNameTextBox.Text,
+                ArtistName = artistTextBox.Text,
+                Year = Int32.Parse(yearTextBox.Text),
+                ImageURL = imageURLTextBox.Text,
+                Description = descriptionTextBox.Text
+            };
+
+            AlbumsDAO albumsDAO = new AlbumsDAO();
+
+            int result = albumsDAO.addOneAlbum(album);
+            MessageBox.Show("The result is : " + result);
 
 
         }
