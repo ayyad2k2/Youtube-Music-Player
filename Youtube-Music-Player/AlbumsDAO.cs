@@ -22,7 +22,7 @@ namespace CheapSpotify
             (connectionString);
             connection.Open();
 
-            MySqlCommand command = new MySqlCommand("SELECT ID, ALBUM_TITLE as `Album Title`, ARTIST as `Artist`, YEAR as `release date`, IMAGE_NAME as `Image`, DESCRIPTION as `Description` FROM `albums`",
+            MySqlCommand command = new MySqlCommand("SELECT ID, ALBUM_TITLE, ARTIST, YEAR, IMAGE_NAME, DESCRIPTION FROM `albums`",
                 connection);
             using (MySqlDataReader reader = command.ExecuteReader())
             {
@@ -98,5 +98,43 @@ namespace CheapSpotify
 
             return newRows;
         }
+
+        public List<Track> getTracksForAlbum (int albumID)
+        {
+            List<Track> returnThese = new List<Track>();
+
+            // SQL Connection 
+            
+            string connectionString = "datasource=localhost;port=3306;username=Albums;password=albums;database=albums;";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+            
+            // Command 
+
+            MySqlCommand command = new MySqlCommand();
+            command.CommandText = ("SELECT ID, track_title, number, video_url, lyrics, albums_ID FROM TRACKS WHERE albums_ID = @albumsID");
+            command.Parameters.AddWithValue("@albumsID", albumID);
+            command.Connection = connection;
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Track t = new Track()
+                    {
+                        ID = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        Number = reader.GetInt32(2),
+                        Source = reader.GetString(3),
+                        Lyrics = reader.GetString(4)
+                    };
+                    returnThese.Add(t);
+                }
+            }
+            connection.Close();
+
+            return returnThese;
+        }
+
+
     }
 }

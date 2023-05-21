@@ -47,6 +47,8 @@
             label1 = new Label();
             addButton = new Button();
             songsDataGridView = new DataGridView();
+            label6 = new Label();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)albumDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             addAlbumGroupBox1.SuspendLayout();
@@ -233,17 +235,37 @@
             // songsDataGridView
             // 
             songsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            songsDataGridView.Location = new Point(404, 326);
+            songsDataGridView.Location = new Point(404, 350);
             songsDataGridView.Name = "songsDataGridView";
             songsDataGridView.RowTemplate.Height = 25;
             songsDataGridView.Size = new Size(637, 175);
             songsDataGridView.TabIndex = 7;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(404, 320);
+            label6.Name = "label6";
+            label6.Size = new Size(39, 15);
+            label6.TabIndex = 8;
+            label6.Text = "Songs";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(407, 45);
+            label7.Name = "label7";
+            label7.Size = new Size(48, 15);
+            label7.TabIndex = 9;
+            label7.Text = "Albums";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1066, 608);
+            Controls.Add(label7);
+            Controls.Add(label6);
             Controls.Add(songsDataGridView);
             Controls.Add(addButton);
             Controls.Add(addAlbumGroupBox1);
@@ -284,5 +306,7 @@
         private TextBox artistTextBox;
         private Button addButton;
         private DataGridView songsDataGridView;
+        private Label label6;
+        private Label label7;
     }
 }

@@ -4,6 +4,8 @@ namespace CheapSpotify
     {
 
         BindingSource albumBindingSource = new BindingSource();
+        BindingSource trackBindingSource = new BindingSource();
+
 
         public Form1()
         {
@@ -16,7 +18,7 @@ namespace CheapSpotify
 
             albumBindingSource.DataSource = albumsDAO.getAllAlbums();
 
-            dataGridView1.DataSource = albumBindingSource;
+            albumDataGridView.DataSource = albumBindingSource;
 
         }
 
@@ -42,7 +44,11 @@ namespace CheapSpotify
                 }
                 catch { }
             }
+            AlbumsDAO albumsDAO = new AlbumsDAO();
 
+            trackBindingSource.DataSource = albumsDAO.getTracksForAlbum((int)dataGridView.Rows[row].Cells[0].Value);
+
+            songsDataGridView.DataSource = trackBindingSource;
 
 
         }
@@ -53,7 +59,7 @@ namespace CheapSpotify
 
             albumBindingSource.DataSource = albumsDAO.getAllAlbums();
 
-            dataGridView1.DataSource = albumBindingSource;
+            albumDataGridView.DataSource = albumBindingSource;
         }
 
         private void addButton_Click(object sender, EventArgs e)
