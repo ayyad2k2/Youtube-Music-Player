@@ -15,9 +15,7 @@ namespace CheapSpotify
         public String ImageURL { get; set; }
         public String Description { get; set; }
 
-
-
-
+        public List<Track> Tracks { get; set; }
 
     }
 }

@@ -37,6 +37,9 @@ namespace CheapSpotify
                         ImageURL = reader.GetString(4),
                         Description = reader.GetString(5)
                     };
+
+                    a.Tracks = getTracksForAlbum(a.ID);
+
                     returnThese.Add(a);
                 }
             }
@@ -44,6 +47,8 @@ namespace CheapSpotify
 
             return returnThese;
         }
+
+
         public List<Album> searchTitles(String searchTerm)
         {
             List<Album> returnThese = new List<Album>();
@@ -135,6 +140,21 @@ namespace CheapSpotify
             return returnThese;
         }
 
+        internal int deleteTrack(int trackID)
+        {
+            MySqlConnection connection = new MySqlConnection
+            (connectionString);
+            connection.Open();
 
+            MySqlCommand command = new MySqlCommand("DELETE FROM tracks WHERE `tracks`.`ID` = @trackID;", connection);
+            command.Parameters.AddWithValue("@trackID", trackID);
+
+ 
+            int result = command.ExecuteNonQuery();
+            connection.Close();
+
+
+            return result;
+        }
     }
 }

@@ -49,6 +49,7 @@
             songsDataGridView = new DataGridView();
             label6 = new Label();
             label7 = new Label();
+            deleteButton = new Button();
             ((System.ComponentModel.ISupportInitialize)albumDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             addAlbumGroupBox1.SuspendLayout();
@@ -259,11 +260,22 @@
             label7.TabIndex = 9;
             label7.Text = "Albums";
             // 
+            // deleteButton
+            // 
+            deleteButton.Location = new Point(407, 540);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(75, 23);
+            deleteButton.TabIndex = 10;
+            deleteButton.Text = "Delete";
+            deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1066, 608);
+            Controls.Add(deleteButton);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(songsDataGridView);
@@ -308,5 +320,6 @@
         private DataGridView songsDataGridView;
         private Label label6;
         private Label label7;
+        private Button deleteButton;
     }
 }

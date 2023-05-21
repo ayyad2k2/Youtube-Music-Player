@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace CheapSpotify
 {
     public partial class Form1 : Form
@@ -5,6 +7,8 @@ namespace CheapSpotify
 
         BindingSource albumBindingSource = new BindingSource();
         BindingSource trackBindingSource = new BindingSource();
+
+        List<Album> albums = new List<Album>();
 
 
         public Form1()
@@ -16,10 +20,11 @@ namespace CheapSpotify
         {
             AlbumsDAO albumsDAO = new AlbumsDAO();
 
-            albumBindingSource.DataSource = albumsDAO.getAllAlbums();
+            albums = albumsDAO.getAllAlbums();
+
+            albumBindingSource.DataSource = albums;
 
             albumDataGridView.DataSource = albumBindingSource;
-
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -44,9 +49,9 @@ namespace CheapSpotify
                 }
                 catch { }
             }
-            AlbumsDAO albumsDAO = new AlbumsDAO();
 
-            trackBindingSource.DataSource = albumsDAO.getTracksForAlbum((int)dataGridView.Rows[row].Cells[0].Value);
+
+            trackBindingSource.DataSource = albums[row].Tracks;
 
             songsDataGridView.DataSource = trackBindingSource;
 
@@ -57,7 +62,9 @@ namespace CheapSpotify
         {
             AlbumsDAO albumsDAO = new AlbumsDAO();
 
-            albumBindingSource.DataSource = albumsDAO.getAllAlbums();
+            albums = albumsDAO.getAllAlbums();
+
+            albumBindingSource.DataSource = albums;
 
             albumDataGridView.DataSource = albumBindingSource;
         }
@@ -78,6 +85,20 @@ namespace CheapSpotify
             int result = albumsDAO.addOneAlbum(album);
             MessageBox.Show("The result is : " + result);
 
+
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            int row = songsDataGridView.CurrentRow.Index;
+            int trackID = (int)songsDataGridView.Rows[row].Cells[0].Value;
+
+            AlbumsDAO albumsDao = new AlbumsDAO();
+            int result = albumsDao.deleteTrack(trackID);
+            MessageBox.Show("Track ID: " + trackID + " was deleted");
+
+            songsDataGridView.DataSource = null;
+            albums = albumsDao.getAllAlbums();
 
         }
     }
