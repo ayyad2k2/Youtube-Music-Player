@@ -16,10 +16,11 @@ namespace CheapSpotify
         {
             InitializeComponent();
         }
-
-        private void buttonExpand_Click(object sender, EventArgs e)
+        // Form 
+        private void buttonExit_Click_1(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
+            // IDK why its named click_1
+            this.Close();
         }
 
         private void buttonMinimize_Click(object sender, EventArgs e)
@@ -27,10 +28,18 @@ namespace CheapSpotify
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void buttonExit_Click_1(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            // IDK why its named click_1
+            Form1 form1 = new Form1();
+            this.Hide();
+            form1.ShowDialog();
             this.Close();
         }
+
+        // END OF Form
+
+
+
+
     }
 }

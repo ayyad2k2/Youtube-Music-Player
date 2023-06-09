@@ -83,7 +83,15 @@ namespace CheapSpotify
             AlbumsDAO albumsDAO = new AlbumsDAO();
 
             int result = albumsDAO.addOneAlbum(album);
-            MessageBox.Show("The result is : " + result);
+            if (result == 1)
+            {
+                MessageBox.Show("Album added, Please refresh Page");
+            }
+            else
+            {
+                MessageBox.Show("Somehow not working");
+
+            }
 
 
         }
